@@ -8,10 +8,9 @@
 }
 
 .banner{
-    position:absolute;
-    margin-top:50%;
-    transform:translate(0,-50%);
-    width:80%;
+    position: absolute;
+    bottom: 0;
+    width: 80%;
 }
 
 
@@ -34,8 +33,6 @@ button{
     color:white !important;
     cursor: pointer;
     display:inherit;
-    margin-top:40px !important;
-    transform:translate(-10%,-40%);
 
 }
 
@@ -43,12 +40,10 @@ button{
     -webkit-box-shadow: 11px 10px 32px 14px rgba(0,0,0,0.18);
     -moz-box-shadow: 11px 10px 32px 14px rgba(0,0,0,0.18);
     box-shadow: 11px 10px 32px 14px rgba(0,0,0,0.18);
-    padding:20px;
+    padding:30px;
     position:absolute;
     top:50%;
     left:50%;
     border-radius:15px;
     transform:translate(-50%,-100%);
 }
-
-

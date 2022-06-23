@@ -59,53 +59,54 @@
 </div>
 
 <script>
-        var page = -1;
-        var inputGroups = [
-            ["First, Introduce Yourself!", "Name", "Introduction"], ["Share Who You Are.", "Profile Picture", "Bio", "Skill"], ["Resume?", "Resume Link"], ["Links", "Linkedin", "Github"]
-        ];
+    var page = -1;
+    var inputGroups = [
+        ["First, Introduce Yourself!", "Name", "Introduction"], ["Share Who You Are.", "Profile Picture", "Bio", "Skill"], ["Resume?", "Resume Link"], ["Lastly, Share Your Links", "Linkedin", "Github"]
+    ];
 
-        function onNext() {
+    function onNext() {
 
-            if(page === inputGroups.length-1) {
-                $("#dynamicForm").submit();
-                return;
-            }
-
-            page++;
-
-            $("#dynamicForm").children("input").each(function () {
-                if(!inputGroups[page].includes($(this).attr('placeholder'))) {
-                    $(this).css("display", "none");
-                } else {
-                    $(this).css("display", "block");
-                }
-                
-            })
-
-            $("#dynamicForm").children("h2").remove();
-            $("#dynamicForm").prepend("<h2 style='margin-bottom:30px'>" + inputGroups[page][0] + "</h2>");
-
-
-            if(page === inputGroups.length-1) {
-                $("nextButton").text("Create My Portfolio!");
-            }
+        if(page === inputGroups.length-1) {
+            $("#dynamicForm").submit();
+            return;
         }
 
-        function onBack() {
-            if (page > 0) page--;
-            $("#dynamicForm").children("input").each(function () {
-                if(!inputGroups[page].includes($(this).attr('placeholder'))) {
-                    $(this).css("display", "none");
-                } else {
-                    $(this).css("display", "block");
-                }
-                
-            })
-            $("#dynamicForm").children("h2").remove();
-            $("#dynamicForm").prepend("<h2 style='margin-bottom:20px'>" + inputGroups[page][0] + "</h2>");
+        page++;
+
+        $("#dynamicForm").children("input").each(function () {
+            if(!inputGroups[page].includes($(this).attr('placeholder'))) {
+                $(this).css("display", "none");
+            } else {
+                $(this).css("display", "block");
+            }
+
+        })
+
+        $("#dynamicForm").children("h2").remove();
+        $("#dynamicForm").prepend("<h2 style='margin-bottom:30px'>" + inputGroups[page][0] + "</h2>");
+
+        console.log(page)
+        if(page === inputGroups.length-1) {
+            console.log("LAST PAGE")
+            $("#nextButton").text("Create My Portfolio!");
         }
-        
-        onNext();
+    }
+
+    function onBack() {
+        if (page > 0) page--;
+        $("#dynamicForm").children("input").each(function () {
+            if(!inputGroups[page].includes($(this).attr('placeholder'))) {
+                $(this).css("display", "none");
+            } else {
+                $(this).css("display", "block");
+            }
+
+        })
+        $("#dynamicForm").children("h2").remove();
+        $("#dynamicForm").prepend("<h2 style='margin-bottom:20px'>" + inputGroups[page][0] + "</h2>");
+    }
+
+    onNext();
 
 </script>
 </body>
